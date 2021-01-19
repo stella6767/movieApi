@@ -7,16 +7,16 @@ import lombok.NoArgsConstructor;
 @Data
 public class CommonDto<T> {
 	private int statuscode;
-	private T data;
+	private T msg;
 		
 	public CommonDto(int statuscode) {
 		super();
 		this.statuscode = statuscode;
 	}	
-	public CommonDto(int statuscode, T data) {
+	public CommonDto(int statuscode, T msg) {
 		super();
 		this.statuscode = statuscode;
-		this.data = data;
+		this.msg = msg;
 	}
 
 }

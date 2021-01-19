@@ -35,13 +35,13 @@ public class MovieController {
 	@GetMapping("/movie")
 	public CommonDto<List<Movie>> findAll() {
 		System.out.println("findAll()");		
-		return new CommonDto<>(HttpStatus.OK.value(), movieRepository.findAll());
+		return new CommonDto<>(200, movieRepository.findAll());
 	}
 	
 	@GetMapping("/movie/{id}")
 	public CommonDto<Movie> findById(@PathVariable int id) {
 		System.out.println("findById()");
-		return new CommonDto<>(HttpStatus.OK.value(), movieRepository.findById(id));
+		return new CommonDto<>(200, movieRepository.findById(id));
 	}
 	
 	
@@ -53,7 +53,7 @@ public class MovieController {
 		System.out.println("dto: "+dto);
 		movieRepository.save(dto);
 
-		return new CommonDto<>(HttpStatus.CREATED.value(), "ok");		
+		return new CommonDto<>(200, "ok");		
 	}
 	
 	@DeleteMapping("/movie/{id}")
@@ -61,7 +61,7 @@ public class MovieController {
 		System.out.println("delete()");
 		
 		movieRepository.delete(id);
-		return new CommonDto<>(HttpStatus.OK.value());
+		return new CommonDto<>(200,"ok");
 	}
 	
 	
@@ -70,7 +70,7 @@ public class MovieController {
 		System.out.println("update()");
 		
 		movieRepository.update(id, dto);
-		return new CommonDto<>(HttpStatus.OK.value());
+		return new CommonDto<>(200,"ok");
 	}
 	
 	
